@@ -36,11 +36,13 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", {})
 vim.keymap.set("n", "<C-l>", "<C-w>l", {})
 
 -- Telescope
+local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>or", telescope.extensions.recent_files.pick, { desc = "Telescope recent files" })
 
 -- Neotree
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left toggle<CR>")
@@ -55,8 +57,8 @@ vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 -- Debugging
 local dap = require("dap")
 
-vim.keymap.set('n', '<F5>', dap.continue, {})
-vim.keymap.set('n', '<F8>', dap.step_over, {})
-vim.keymap.set('n', '<F7>', dap.step_into, {})
-vim.keymap.set('n', '<S-F8>', dap.step_out, {})
-vim.keymap.set('n', '<Leader>b', dap.toggle_breakpoint, {})
+vim.keymap.set("n", "<F5>", dap.continue, {})
+vim.keymap.set("n", "<F8>", dap.step_over, {})
+vim.keymap.set("n", "<F7>", dap.step_into, {})
+vim.keymap.set("n", "<S-F8>", dap.step_out, {})
+vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {})
