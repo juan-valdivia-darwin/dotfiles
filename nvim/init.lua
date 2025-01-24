@@ -33,8 +33,8 @@ vim.opt.hlsearch = false
 
 -- Undo Settings
 vim.opt.swapfile = false
-vim.opt.backupt = false
-vim.opt.undoir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- Theme
 vim.cmd("colorscheme tokyonight-night")
@@ -65,7 +65,7 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Tab and window management
-vim.keyamp.set("n", "<leader>t", ":tabedit<cr>")
+vim.keymap.set("n", "<leader>t", ":tabedit<cr>")
 
 -- Telescope
 local telescope = require("telescope")
