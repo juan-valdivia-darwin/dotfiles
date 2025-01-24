@@ -11,6 +11,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
 
 -- Display
 vim.opt.number = true
@@ -19,11 +20,21 @@ vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.termguicolors = true
+vim.opt.guicursor = ""
+vim.opt.scrolloff = 8
+vim.opt.colorcolumn = "101"
+vim.opt.signcolumn = "yes"
 
 -- Searching
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.hlsearch = false
+
+-- Undo Settings
+vim.opt.swapfile = false
+vim.opt.backupt = false
+vim.opt.undoir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- Theme
 vim.cmd("colorscheme tokyonight-night")
@@ -34,6 +45,27 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", {})
 vim.keymap.set("n", "<C-j>", "<C-w>j", {})
 vim.keymap.set("n", "<C-k>", "<C-w>k", {})
 vim.keymap.set("n", "<C-l>", "<C-w>l", {})
+
+-- Better editing
+    -- Moving code blocks
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+
+    -- Cursor stays in middle while pagin
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+    -- Cursor in middle while searching
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+    -- Copy to system clipboard with leader key
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+-- Tab and window management
+vim.keyamp.set("n", "<leader>t", ":tabedit<cr>")
 
 -- Telescope
 local telescope = require("telescope")
